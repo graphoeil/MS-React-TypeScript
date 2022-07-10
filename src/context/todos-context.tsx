@@ -33,8 +33,6 @@ const TodosProvider:React.FC<{ children:any }> = ({ children }) => {
 	// Add new todo
 	const addTodo = (text:string) => {
 		const newTodo = new Todo(text);
-		console.log(newTodo);
-		
 		setTodos((oldTodos) => {
 			return [...oldTodos, newTodo];
 		});
