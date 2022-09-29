@@ -41,16 +41,17 @@ const NewTodo:React.FC<{ addTodo:(text:string)=>void }> = ({ addTodo }) => {
 const Wrapper = styled.form`
 	width: 40rem;
 	margin: 2rem auto;
+	text-align: center;
 	label{
 		display: block;
 		font-weight: bold;
 		margin-bottom: 0.5rem;
+		text-align: left;
 	}
 	input{
 		display: block;
 		width: 100%;
 		font: inherit;
-		font-size: 1.5rem;
 		padding: 0.5rem;
 		border-radius: 4px;
 		background-color: #f7f5ef;
@@ -62,15 +63,16 @@ const Wrapper = styled.form`
 	}
 	button{
 		font: inherit;
-		background-color: #ebb002;
-		border: 1px solid #ebb002;
+		background-color: #ebc002;
+		border: none;
 		color: #201d0f;
 		padding: 0.5rem 1.5rem;
 		border-radius: 4px;
 		cursor: pointer;
+		transition: 0.35s background ease-in-out, 0.35s padding ease-in-out;
 		&:hover, &:active{
-			background-color: #ebc002;
-			border-color: #ebc002;
+			background-color: #ebb002;
+			padding: 0.5rem 2rem;
 		}
 	}
 `;

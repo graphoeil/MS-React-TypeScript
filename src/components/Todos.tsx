@@ -6,7 +6,8 @@ import TodoItem from "./TodoItem";
 
 // Component with type definition FC => Functional Component
 // <{}> with that we indicate the generic type of the props, 
-// an object that contains all the props ,-)
+// an object that contains our props ,-)
+// This object will be merged with the other prop => children
 const Todos:React.FC<{ items:Todo[], removeTodo:(id:string)=>void }> = ({ items, removeTodo }) => {
 
 	// Return
@@ -16,6 +17,7 @@ const Todos:React.FC<{ items:Todo[], removeTodo:(id:string)=>void }> = ({ items,
 				items.map((item) => {
 					// We define id and text in the todo.js data model
 					return <TodoItem key={ item.id } text={ item.text } 
+						// Or removeTodo = { removeTodo.bind(null, item.id) }
 						removeTodo={ () => { removeTodo(item.id); } }/>
 				})
 			}

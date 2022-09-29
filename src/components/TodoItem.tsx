@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 // Component
+// React.FC<{}> => describes that it's a functional component, 
+// in the curly braces we describes the type of the props
 const TodoItem:React.FC<{ text:string, removeTodo:()=>void }> = ({ text, removeTodo }) => {
 
 	// Return
@@ -21,7 +23,7 @@ const Wrapper = styled.li`
 	cursor: pointer;
 	transition: 0.35s background ease-in-out, 0.35s transform ease-in-out;
 	&:hover{
-		background-color: #ebc002;
+		background-color: #ebb002;
 		transform: scale(1.05);
 	}
 `;

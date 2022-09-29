@@ -1,17 +1,17 @@
 // Import
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Todo from "../models/todo";
 
-// Type definition
-type TodosContextObject = {
-	todos:Todo[],
-	addTodo:(text:string)=>void,
-	removeTodo:(id:string)=>void
-}
+// Context type definition
+type TodosContextDescription = {
+	todos:Todo[];
+	addTodo:(text:string)=>void;
+	removeTodo:(id:string)=>void;
+};
 
 // Context
-const TodosContext = React.createContext<TodosContextObject>({
-	// Description of the context ,-)
+const TodosContext = React.createContext<TodosContextDescription>({
+	// Default values of the context
 	todos:[],
 	addTodo:(text:string)=>{},
 	removeTodo:(id:string)=>{}
@@ -25,9 +25,15 @@ const TodosProvider:React.FC<{ children:any }> = ({ children }) => {
 		new Todo('Learn React')
 	];
 
-	// Todos
-	// We indicate to TS that todos will be an array 
-	// of Todo even if initially it's an empty array
+	// Another todo (because id based on time)
+	useEffect(() => {
+		setTimeout(() => {
+			addTodo('Learn TypeScript');
+		},10);
+	},[]);
+
+	// Todos state
+	// We indicate to TS that todos will be an array of Todo
 	const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
 	// Add new todo

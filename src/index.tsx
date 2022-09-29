@@ -10,9 +10,7 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
-	<React.StrictMode>
-		<TodosProvider>
-			<App />
-		</TodosProvider>
-	</React.StrictMode>
+	<TodosProvider>
+		<App />
+	</TodosProvider>
 );
